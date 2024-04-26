@@ -5,7 +5,7 @@ class ViewModel : ObservableObject {
     @Published var linguagens: [Linguagens] = []
     
     func fetchLinguagens(){
-        guard let url = URL(string: "http://192.168.128.78:1880/buscar") else {
+        guard let url = URL(string: "http://127.0.0.1:1880/buscar") else {
             return
         }
         let task = URLSession.shared.dataTask(with: url){ [weak self] data, _, error in
@@ -28,7 +28,7 @@ class ViewModel : ObservableObject {
     
     func fetchLinguagensPorCategoria(for category: String?) {
           guard let category = category,
-                let url = URL(string: "http://192.168.128.78:1880/buscar") else {
+                let url = URL(string: "http://127.0.0.1:1880/buscar") else {
               return
           }
           let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
